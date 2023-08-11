@@ -208,7 +208,7 @@ public class MemberController {
 		// -> SessionStatus.setComplete()
 		
 		status.setComplete();
-		// session.invalidate();  // 세션무효화 호환x
+		// session.invalidate();  // 세션무효화 호환 X
 		
 		return "redirect:/";
 	}
