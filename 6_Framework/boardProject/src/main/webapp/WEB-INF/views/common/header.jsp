@@ -57,6 +57,37 @@
 
 
     <section></section>
+
+    <!-- 우측 상단 드롭다운 메뉴 -->
+
+    <div class="header-top-menu">
+
+        <c:choose>
+        
+            <%-- 로그인 X --%>
+            <c:when test="${empty loginMember}">
+            <a href="/">메인 페이지</a> | <a href="/member/login">로그인</a>
+            </c:when>
+            
+            <%-- 로그인 O --%>
+            <c:otherwise>
+                <!-- 로그인 O -->
+                <label for="headerMenuToggle">
+                    ${loginMember.memberNickname} <i class="fa-solid fa-caret-down"></i>
+                </label>
+
+                <input type="checkbox" id="headerMenuToggle">
+
+                <div class="header-menu">
+                    <a href="#">내 정보</a>
+                    <a href="/member/logout">로그아웃</a>
+                </div>
+            </c:otherwise>
+        </c:choose>
+
+    </div>
+
+
 </header>
 
 <nav>
