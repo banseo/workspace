@@ -101,10 +101,10 @@
 
                             <div class="my-info">
                                 <div>
-                                    <a href="#" id="nickname">${sessionScope.loginMember.memberNickname}</a>
+                                    <a href="/myPage/info" id="nickname">${sessionScope.loginMember.memberNickname}</a>
 
                                     <a href="/member/logout" id="logoutBtn">로그아웃</a>
-                                </div>   
+                                </div>
 
                                 <p>${loginMember.memberEmail}</p>
 
