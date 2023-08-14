@@ -13,7 +13,7 @@ public class MemberDAO {
 
 	//SqlSessionTemplate (마이바티스 객체) DI
 	@Autowired // 등록된 Bean 중에서 SqlSessionTemplate 타입의 Bean을 주입
-	private SqlSessionTemplate sqlSessison;
+	private SqlSessionTemplate sqlSession;
 	
 	
 	/** 로그인 DAO
@@ -31,7 +31,7 @@ public class MemberDAO {
 		
 		
 		
-		return sqlSessison.selectOne("memberMapper.login", inputMember);
+		return sqlSession.selectOne("memberMapper.login", inputMember);
 	}
 
 
@@ -48,7 +48,7 @@ public class MemberDAO {
 		// return sqlSessison.insert("1) namespace.id", 2) inputMember);
 		
 		// insert 성공한 행의 개수 반환
-		return sqlSessison.insert("memberMapper.signUp", inputMember);
+		return sqlSession.insert("memberMapper.signUp", inputMember);
 	}
 
 }

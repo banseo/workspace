@@ -95,7 +95,7 @@
                     <c:otherwise>
                         <article class="login-area">
 
-                            <a href="#">
+                            <a href="/myPage/profile">
                                 <img src="/resources/images/user.png" id="memberProfile">
                             </a>
 
