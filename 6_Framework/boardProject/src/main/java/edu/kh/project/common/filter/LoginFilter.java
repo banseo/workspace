@@ -68,6 +68,7 @@ public class LoginFilter implements Filter {
 			//	  DispatcherServlet으로 전달
 		} else {
 			chain.doFilter(request, response);
+			// 연결된 다음 필터를 수행(없으면 Servlet 수행)
 		}
 	}
 

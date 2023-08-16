@@ -60,7 +60,7 @@ public class MyPageDAO {
 	 * @return result
 	 */
 	public int secession(int memberNo) {
-		// sqlSessionTemplate : 마이바티스 + DBCP + close자동 + 트랜잭션 처리
+		// sqlSessionTemplate : 마이바티스 + DBCP(DB 커넥션풀) + close자동 + 트랜잭션 처리
 		return sqlSession.update("myPageMapper.secession", memberNo);
 	}
 	
