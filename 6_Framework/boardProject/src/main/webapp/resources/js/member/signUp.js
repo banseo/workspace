@@ -307,11 +307,43 @@ memberNickname.addEventListener("input", ()=>{
     const regEx = /^[가-힣\w\d]{2,10}$/
 
     if(regEx.test(memberNickname.value)){ // 유효할때
-        nickMessage.innerText = "올바른 닉네임입니다.";
-        nickMessage.classList.add("confirm");
-        nickMessage.classList.remove("error");
 
-        checkObj.memberNickname = true;
+        fetch("/dupCheck/nickname?nickname=" + memberNickname.value)
+
+        .then(resp => resp.text()) // 응답 객체를 text로 파싱(변환)
+
+        .then(count => {
+            if(count == 0){ // 중복이 아닌 경우
+                
+                nickMessage.innerText = "사용 가능한 닉네임입니다.";
+                nickMessage.classList.add("confirm");
+                nickMessage.classList.remove("error");
+                
+                checkObj.memberNickname = true;
+                
+            } else{ // 중복인 경우
+                nickMessage.innerText = "이미 사용 중인 닉네임입니다.";
+                nickMessage.classList.add("error");
+                nickMessage.classList.remove("confirm");
+        
+                checkObj.memberNickname = false;
+            }
+        })
+
+        .catch( err => console.log(err));
+
+
+
+
+
+
+
+
+
+
+
+
+
     } else{
         nickMessage.innerText = "올바르지 않은 닉네임입니다.";
         nickMessage.classList.add("error");

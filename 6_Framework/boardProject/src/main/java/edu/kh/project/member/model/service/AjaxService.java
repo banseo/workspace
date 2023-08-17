@@ -28,4 +28,13 @@ public interface AjaxService {
 	 */
 	int checkEmail(String email);
 
+
+
+
+	/** 닉네임 중복 검사
+	 * @param nickname
+	 * @return count
+	 */
+	int checkNickname(String nickname);
+
 }

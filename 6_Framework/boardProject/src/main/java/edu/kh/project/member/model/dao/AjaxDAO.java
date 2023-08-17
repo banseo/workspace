@@ -39,4 +39,14 @@ public class AjaxDAO {
 	public int checkEmail(String email) {
 		return sqlSession.selectOne("ajaxMapper.checkEmail", email);
 	}
+
+
+
+	/** 닉네임 중복 검사
+	 * @param nickname
+	 * @return count
+	 */
+	public int checkNickname(String nickname) {
+		return sqlSession.selectOne("ajaxMapper.checkNickname", nickname);
+	}
 }

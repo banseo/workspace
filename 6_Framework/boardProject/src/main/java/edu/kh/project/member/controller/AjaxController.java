@@ -37,11 +37,25 @@ public class AjaxController {
 	
 	
 	// 이메일 중복 검사
+	
+	// !! produces 속성은 한글 꺠질때 사용!!
 	@GetMapping("/dupCheck/email")
 	@ResponseBody // HttpMessageConverter를 이용해
 				  // JS에서 인식할 수 있는 형태(TEXT/JSON)변환
+				  // 비동기 요청한 곳으로 돌아감
+	// 이메일 중복 검사
+		/* jack-databind pom.xml 추가!! */
 	public int checkEmail(String email) {
 		return service.checkEmail(email) ;
+	}
+	
+	
+	
+	// 닉네임 중복 검사
+	@GetMapping("/dupCheck/nickname")
+	@ResponseBody
+	public int checkNickname(String nickname) {
+		return service.checkNickname(nickname);
 	}
 	
 	
