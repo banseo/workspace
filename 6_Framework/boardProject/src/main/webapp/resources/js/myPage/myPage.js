@@ -127,27 +127,34 @@ if(changePwFrm != null){
 const memberPw = document.getElementById("memberPw");
 const secessionFrm = document.getElementById("secessionFrm");
 const agree = document.getElementById("agree");
-// 비밀번호 미작성
-// 동의체크가 되지 않은 경우
-// 취소 클릭 시
+
+
 
 if(secessionFrm != null){
+
     secessionFrm.addEventListener("submit", e => {
+
+        // 비밀번호 미작성
         if(memberPw.value.trim() == ""){
             alert("비밀번호를 입력해주세요.");
             e.preventDefault();
             memberPw.focus();
+            memberPw.value="";
             return;
         }
 
+        // 동의체크가 되지 않은 경우
         if(agree.checked == false){
             alert("약관 동의를 해주세요.");
             e.preventDefault();
+            agree.focus();
             return;
         }
-
+        // 취소 클릭 시
         if(!confirm("정말 탈퇴하시겠습니까?")){
+            alert("탈퇴 취소");
             e.preventDefault();
+            return;
         }
     });
 }

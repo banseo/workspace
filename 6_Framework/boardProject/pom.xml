@@ -20,8 +20,8 @@
 	<!-- dependencies : Maven 프로젝트는 외부 저장소와 의존 관계를 맺고 있어 프로젝트에 필요한 파일을(라이브러리) 
 		사용자가 직접 받을 필요 없이 해당 태그 내에 지정된 형식으로 작성하면 네트워크를 통해 외부 저장소에서 자동으로 얻어와 세팅함. -->
 	<dependencies>
-	
-		
+
+
 
 		<!-- lombok 라이브러리 -->
 		<!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
@@ -73,7 +73,7 @@
 			<artifactId>commons-dbcp2</artifactId>
 			<version>2.9.0</version>
 		</dependency>
-	
+
 		<!-- Spring-security @@@@ -->
 		<!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-core -->
 		<dependency>
@@ -81,15 +81,25 @@
 			<artifactId>spring-security-core</artifactId>
 			<version>5.7.1</version>
 		</dependency>
-	
+		
+		<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>2.14.2</version>
+		</dependency>
+
+		
+
 		<!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-web -->
 		<dependency>
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-web</artifactId>
 			<version>5.7.1</version>
 		</dependency>
-	
-		<!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-config 추가 @@@ -->
+
+		<!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-config 
+			추가 @@@ -->
 		<dependency>
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-config</artifactId>
@@ -102,10 +112,10 @@
 			<artifactId>spring-context</artifactId>
 			<version>${org.springframework-version}</version>
 			<exclusions>
-			<!-- Exclude Commons Logging in favor of SLF4j -->
-			<exclusion>
-				<groupId>commons-logging</groupId>
-				<artifactId>commons-logging</artifactId>
+				<!-- Exclude Commons Logging in favor of SLF4j -->
+				<exclusion>
+					<groupId>commons-logging</groupId>
+					<artifactId>commons-logging</artifactId>
 				</exclusion>
 			</exclusions>
 		</dependency>
