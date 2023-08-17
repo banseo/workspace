@@ -177,7 +177,7 @@ memberPw.addEventListener("input", ()=>{
     // 정규 표현식을 이용한 비밀번호 유효성 검사
 
     // 영어,숫자,특수문자(!,@,#,-,_) 6~20글자 사이
-    const regEx = /^[a-zA-Z0-9\!\@\#\-\_]{6,20}$/
+    const regEx = /^[a-zA-Z0-9\!\@\#\-\_]{6,20}$/;
 
     // 입력한 비밀번호가 유효한 경우
     if(regEx.test(memberPw.value)){
