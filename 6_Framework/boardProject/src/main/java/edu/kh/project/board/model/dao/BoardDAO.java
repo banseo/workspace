@@ -54,6 +54,7 @@ public class BoardDAO {
 		int offset
 		= (pagination.getCurrentPage() - 1) * pagination.getLimit();
 		
+		
 		// 2. RowBounds 객체 생성
 		RowBounds rowBounds = new RowBounds(offset, pagination.getLimit());
 		

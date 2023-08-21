@@ -5,6 +5,14 @@
 <c:set var="pagination" value="${map.pagination}" />
 <c:set var="boardList" value="${map.boardList}" />
 
+<%-- <c:set var="boardName" value="${boardTypeList[boardCode-1].BOARD_NAME}"/> --%>
+
+<c:forEach items="${boardTypeList}" var="boardType">
+    <c:if test="${boardType.BOARD_CODE == boardCode}" >
+        <c:set var="boardName" value="${boardType.BOARD_NAME}"/>
+    </c:if>
+</c:forEach>
+
 
 
 <!DOCTYPE html>
@@ -25,7 +33,7 @@
         
         <section class="board-list">
 
-            <h1 class="board-name">게시판 이름</h1>
+            <h1 class="board-name">${boardName}</h1>
 
 
             <div class="list-wrapper">
@@ -96,33 +104,38 @@
                 <ul class="pagination">
                 
                     <!-- 첫 페이지로 이동 -->
-                    <li><a href="#">&lt;&lt;</a></li>
+                    <li><a href="/board/${boardCode}?cp=1">&lt;&lt;</a></li>
 
                     <!-- 이전 목록 마지막 번호로 이동 -->
-                    <li><a href="#">&lt;</a></li>
+                    <li><a href="/board/${boardCode}?cp=${pagination.prevPage}">&lt;</a></li>
 
                
                     <!-- 특정 페이지로 이동 -->
+                    <c:forEach var="i" begin="${pagination.startPage}" end="${pagination.endPage}" step="1">
                     
-                    <!-- 현재 보고있는 페이지 -->
-                    <li><a class="current">1</a></li>
-                    
-                    <!-- 현재 페이지를 제외한 나머지 -->
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">4</a></li>
-                    <li><a href="#">5</a></li>
-                    <li><a href="#">6</a></li>
-                    <li><a href="#">7</a></li>
-                    <li><a href="#">8</a></li>
-                    <li><a href="#">9</a></li>
-                    <li><a href="#">10</a></li>
-                    
+
+                        <c:choose>
+                            <c:when test="${i == pagination.currentPage}">
+                                <!-- 현재 보고있는 페이지 -->
+                                <li><a class="current">${i}</a></li>
+                            </c:when>
+                        
+                            <c:otherwise>
+                                <!-- 현재 페이지를 제외한 나머지 -->
+                                <li><a href="/board/${boardCode}?cp=${i}">${i}</a></li>
+                            </c:otherwise>
+                        </c:choose>
+
+
+                        
+
+                    </c:forEach>
+
                     <!-- 다음 목록 시작 번호로 이동 -->
-                    <li><a href="#">&gt;</a></li>
+                    <li><a href="/board/${boardCode}?cp=${pagination.nextPage}">&gt;</a></li>
 
                     <!-- 끝 페이지로 이동 -->
-                    <li><a href="#">&gt;&gt;</a></li>
+                    <li><a href="/board/${boardCode}?cp=${pagination.maxPage}">&gt;&gt;</a></li>
 
                 </ul>
             </div>
