@@ -291,7 +291,6 @@ if(imageInput != null){ // 화면에 imageInput이 있을 경우
         if(flag){ // flag == true -> 제출하면 안되는 경우
             e.preventDefault(); // form 기본 이벤트 제거
             alert("이미지 변경 후 클릭하세요.");
-
         }
     });
 
