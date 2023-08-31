@@ -49,9 +49,10 @@ public class AirPollutionJavaAppRun {
 		String line;
 		while((line = br.readLine()) != null) { // 한줄씩 읽어올 데이터가 있는 동안만 반복
 			// System.out.println(line);
+			System.out.println(line);
 			responseText += line;
 		}
-		System.out.println(responseText);
+		System.out.println("dd/" + responseText);
 		
 		
 		// JsonObject, JsonArray 이용해서 파싱할 수 있음( gson 라이브러리)

@@ -23,6 +23,9 @@
         // 문자열의 경우 따옴표가 없는 상태이니 붙여줘야한다!!!
         alert("${message}");
     </script>
+    
+    <%-- message 1회 출력 후 session에서 제거 --%>
+	<c:remove var="message" scope="session" />
 
-
+    
 </c:if>

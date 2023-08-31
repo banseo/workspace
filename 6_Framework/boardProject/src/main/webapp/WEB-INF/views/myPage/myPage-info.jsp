@@ -26,12 +26,12 @@
                 <h1 class="myPage-title">내 정보</h1>
                 <span class="myPage-subject">원하는 회원 정보를 수정할 수 있습니다.</span>
 
+                <%-- 현재 페이지 http://localhost/myPage/info 
+                    제일 뒤에 info 지우고
+                    action에 작성된 경로 추가
+                --%>
 
-                <%-- 현재 페이지 : http://localhost/myPage/info
-                     제일 뒤에 info 지우고
-                     action에 작성된 경로 추가
-                 --%>
-
+                <%-- 상대경로 --%>
                 <form action="info" method="POST" name="myPageFrm" id="updateInfo">
 
                     <div class="myPage-row">
@@ -44,35 +44,33 @@
                         <input type="text" name="memberTel"  maxlength="11" value="${loginMember.memberTel}" id="memberTel">
                     </div>
 
+
+                    <%-- ${fn:split(loginMember.memberAddress, '^^^')[0]}
+                    ${fn:split(loginMember.memberAddress, '^^^')[1]}
+                    ${fn:split(loginMember.memberAddress, '^^^')[2]} --%>
+
+                    <%-- 
+                        ${fn:split(문자열, 구문자)}
+                        문자열을 구분자로 나누어 배열 형태로 반환
+                     --%>
+
+                    <c:set var="addr" value="${fn:split(loginMember.memberAddress, '^^^')}"/>
+
                     <div class="myPage-row info-title">
                         <span>주소</span>
                     </div>
 
-                    <%-- 
-                        ${fn:split(loginMember.memberAddress, '^^^')[0]}
-                        ${fn:split(loginMember.memberAddress, '^^^')[1]}
-                        ${fn:split(loginMember.memberAddress, '^^^')[2]}
-                     --%>
-
-                     <%-- 
-                        ${fn:split(문자열, 구분자)}
-                        문자열을 구분자로 나누어 배열 형태로 반환
-                      --%>
-
-                    <c:set var="addr" value="${fn:split(loginMember.memberAddress, '^^^')}"/>
-
-
                     <div class="myPage-row info-address">
-                        <input type="text" name="memberAddress" placeholder="우편번호" id="sample6_postcode" value="${addr[0]}">
+                        <input type="text" name="memberAddress" placeholder="우편번호" value="${addr[0]}"  id="sample6_postcode">
                         <button type="button"  onclick="sample6_execDaumPostcode()">검색</button>
                     </div>
 
                     <div class="myPage-row info-address">
-                        <input type="text" name="memberAddress" id="sample6_address" placeholder="도로명/지번 주소" value="${addr[1]}">                
+                        <input type="text" name="memberAddress"  placeholder="도로명/지번 주소" value="${addr[1]}"  id="sample6_address">                
                     </div>
 
                     <div class="myPage-row info-address">
-                        <input type="text" name="memberAddress"  id="sample6_detailAddress" placeholder="상세 주소" value="${addr[2]}">                
+                        <input type="text" name="memberAddress"  placeholder="상세 주소" value="${addr[2]}"  id="sample6_detailAddress">                
                     </div>
 
                     <button class="myPage-submit">수정하기</button>
@@ -85,9 +83,9 @@
     </main>
     <jsp:include page="/WEB-INF/views/common/footer.jsp" />
 
-
     <!-- 다음 주소 api 추가 -->
     <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+
     <script>
         function sample6_execDaumPostcode() {
             new daum.Postcode({
@@ -114,7 +112,7 @@
             }).open();
         }
     </script>
-
+    
     <script src="/resources/js/myPage/myPage.js"></script>
 </body>
 </html>

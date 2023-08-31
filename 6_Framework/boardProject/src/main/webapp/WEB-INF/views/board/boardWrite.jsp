@@ -22,15 +22,15 @@
     <main>
         <jsp:include page="/WEB-INF/views/common/header.jsp"/>
 
-                                <%-- PathVariable에서 등록 (${boardCode}) --%>
+            <%-- @PathVariable에서 등록한 boardCode 가져옴(자동으로 request scope에 등록되어 있음) --%>
         <form action="/board2/${boardCode}/insert" method="POST" 
             class="board-write" id="boardWriteFrm" enctype="multipart/form-data">
-            <%-- enctype="multipart/form-data" : 제출 데이터 인코딩x 
-                    -> 파일 제출 가능
-                    -> MultiPartResolver가 문자열, 파일을 구분
-                    --> 문자열 -> String, int, DTO, Map (HttpMessageConverter)
-                    --> 파일 -> MultiPartFile 객체 -> transferTo() (파일을 서버에 저장)
-            --%>
+            <%-- enctype="multipart/form-data : 제출 데이터 인코딩 X" 
+                -> 파일 제출 가능
+                -> MultipartResolver가 문자열, 파일 구분
+                --> 문자열 -> String, int, DTO, Map(HttpMessageConverter)
+                --> 파일 -> MutipartFile 객체 -> transferTo() - 파일을 서버에 저장
+            --%>  
 
             <h1 class="board-name">${boardName}</h1>
 

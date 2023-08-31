@@ -15,13 +15,9 @@
 </head>
 <body>
     <main>
-        <%-- header.jsp include --%>
-        <%-- 다른 JSP코드를 현재 위치에 포함
-             webapp부터의 jsp 경로를 작성
-         --%>
+        <!-- 다른 jsp 코드를 현재 위치에 포함
+             webapp 부터의 jsp 경로를 작성 -->
         <jsp:include page="/WEB-INF/views/common/header.jsp"/>
-       
-
 
         <section class="signUp-content">
 
@@ -124,19 +120,19 @@
 
 
                 <div class="signUp-input-area">
-                    <input type="text" name="memberAddress" placeholder="우편번호" maxlength="6" id="sample6_postcode">
+                    <input type="text" name="memberAddress" id="sample6_postcode" placeholder="우편번호" maxlength="6">
                    
                     <button type="button" onclick="sample6_execDaumPostcode()">검색</button>
                 </div>
 
 
                 <div class="signUp-input-area">
-                    <input type="text" name="memberAddress" placeholder="도로명/지번 주소" id="sample6_address">
+                    <input type="text" name="memberAddress" id="sample6_address" placeholder="도로명/지번 주소">
                 </div>
 
 
                 <div class="signUp-input-area">
-                    <input type="text" name="memberAddress" placeholder="상세 주소" id="sample6_detailAddress">
+                    <input type="text" name="memberAddress" id="sample6_detailAddress" placeholder="상세 주소">
                 </div>
 
 
@@ -149,11 +145,11 @@
 
     </main>
 
-
-    <%-- footer.jsp include --%>
     <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 
+
     <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+
     <script>
         function sample6_execDaumPostcode() {
             new daum.Postcode({
@@ -182,8 +178,5 @@
     </script>
 
     <script src="/resources/js/member/signUp.js"></script>
-
-
-
 </body>
 </html>
