@@ -179,11 +179,15 @@
         // 게시글 번호 전역변수로 선언
         const boardNo = "${board.boardNo}";
 
+        
+
         // 로그인한 회원 번호 전역변수로 선언
         // 작성한 EL 구문이 null일 경우 빈칸으로 출력되어 변수에 값이 대입되지 않는 문제가 발생할 수 있음
         // -> 양 끝에 쌍따옴표를 넣어서 빈값이라도 빈 문자열이 들어갈 수 있게 한다.
         // --> EL 구문의 해석순서 우선 순위 ! ! ! (+ EL은 값이 null이어도 ""(빈문자열)로 출력)
         const loginMemberNo = "${loginMember.memberNo}";
+
+        const boardCode = "${boardCode}";
 
 
         // console.log(boardNo);
