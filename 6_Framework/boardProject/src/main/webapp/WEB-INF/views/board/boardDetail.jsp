@@ -188,7 +188,7 @@
         const loginMemberNo = "${loginMember.memberNo}";
 
         const boardCode = "${boardCode}";
-
+    
 
         // console.log(boardNo);
         // console.log(memberNo);

@@ -144,6 +144,7 @@ public class MemberController {
 						HttpServletResponse resp,
 						RedirectAttributes ra) {
 		
+		
 		// Member inputMember : 커맨드 객체(필드에 파라미터 담겨있음)
 		
 		// @RequestHeader(value="referer") String referer
