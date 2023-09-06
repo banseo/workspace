@@ -28,6 +28,17 @@ class Exam1 extends Component{
             </>
         );
     }
+
+    /*
+    document.getElementById(버튼).addEventListner("click", () => {
+
+        const count = document.getElementById(카운트);
+
+        count.innerText = Number(count.innerText) + 1
+    })
+    
+    
+    */
 }
 
 export default Exam1;

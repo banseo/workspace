@@ -18,11 +18,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class OpenAPIController {
 
 	// 발급받은 인증키 변수 처리
-	public static final String SERVICEKEY = "1S 7%2FfP3Kqg5ktd3tiNu0B3rGawJDxYMxAkGaLRBAuK%2B6T4dKOvyE5Ldz2Vp9RcUiA1HeHTMnEwg2aw4RPS05t%2FA%3D%3D";	
+	public static final String SERVICEKEY = "1S%2FfP3Kqg5ktd3tiNu0B3rGawJDxYMxAkGaLRBAuK%2B6T4dKOvyE5Ldz2Vp9RcUiA1HeHTMnEwg2aw4RPS05t%2FA%3D%3D";	
 
 	// json 형식으로 대기오염 OpenAPI 활용하기
 	@ResponseBody
-	//@RequestMapping(value="air.do", produces = "application/json; charset=UTF-8")
+	// @RequestMapping(value="air", produces = "application/json; charset=UTF-8")
 	public String airMethod(String location) throws IOException {
 
 		// OpenAPI 서버로 요청하고자 하는 url 작성
@@ -63,7 +63,7 @@ public class OpenAPIController {
 
 	// public static final String SERVICEKEY = "1S%2FfP3Kqg5ktd3tiNu0B3rGawJDxYMxAkGaLRBAuK%2B6T4dKOvyE5Ldz2Vp9RcUiA1HeHTMnEwg2aw4RPS05t%2FA%3D%3D";	
 	// xml 형식으로 대기오염 OpenAPI 활용하기
-	//@GetMapping(value = "air", produces = "text/xml; charset=UTF-8")
+	@GetMapping(value = "air", produces = "text/xml; charset=UTF-8")
 	@ResponseBody
 	public String airPollution(String location) throws IOException {
 		// 필요한 url 가져오기
@@ -104,6 +104,7 @@ public class OpenAPIController {
 	}
 
 
+	// xml 형식으로 지진해일 대피소 OpenAPI 활용하기
 	@GetMapping(value = "shelter", produces = "text/xml; charset=UTF-8")
 	@ResponseBody
 	public String shelterList() throws IOException {
@@ -116,12 +117,16 @@ public class OpenAPIController {
 
 		URL requestUrl = new URL(url);
 
+		// URL Connection 생성
 		HttpURLConnection urlConn = (HttpURLConnection)requestUrl.openConnection();
 
+		// Header 생성
 		urlConn.setRequestMethod("GET");
 
+		// 스트림 생성
 		BufferedReader br = new BufferedReader(new InputStreamReader(urlConn.getInputStream()));
 
+		// 데이터 읽어서 저장
 		String responseText = "";
 		String line;
 
@@ -129,6 +134,7 @@ public class OpenAPIController {
 			responseText += line;
 		}
 
+		// 자원 반납
 		br.close();
 		urlConn.disconnect();
 
@@ -136,37 +142,6 @@ public class OpenAPIController {
 
 		return responseText;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 
 
 
